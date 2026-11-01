@@ -1,0 +1,12 @@
+{
+  "name": "@hypereum/receipts-browser-extension",
+  "version": "0.1.0",
+  "description": "Manifest V3 browser extension for offline verification of .hvr receipts.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./background.mjs",
+  "scripts": {
+    "build": "node --test test/smoke.test.mjs",
+    "test": "node --test test/smoke.test.mjs"
+  }
+}

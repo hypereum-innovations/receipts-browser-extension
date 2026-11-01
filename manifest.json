@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Hivemind Receipts Offline Verifier (.hvr)",
+  "version": "0.1.0",
+  "description": "Offline Class-1 verifier for Hivemind Receipts (.hvr): verifies email attachments, GitHub PR comments/check-runs, and embedded application/vnd.hivemind.receipt+cose elements.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.mjs",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Hivemind Receipts Verifier",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*",
+        "https://mail.google.com/*",
+        "https://outlook.office.com/*",
+        "https://*/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": [
+        "content.mjs"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

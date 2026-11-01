@@ -1,0 +1,171 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hivemind Receipts · Browser Verifier (.hvr)</title>
+    <style>
+      :root {
+        --hr-bg-0: #0B1210;
+        --hr-bg-1: #101916;
+        --hr-bg-2: #070C0B;
+        --hr-line: #1E2E28;
+        --hr-line-strong: #2E453C;
+        --hr-ink: #F2EFE9;
+        --hr-ink-secondary: #C8C4BA;
+        --hr-ink-muted: #9A958B;
+        --hr-brand: #4E9E72;
+        --hr-warn: #E08A3C;
+        --hr-pending: #7E92A6;
+        --hr-crit: #E5645E;
+        --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        width: 380px;
+        margin: 0;
+        padding: 0;
+        background: var(--hr-bg-0);
+        color: var(--hr-ink);
+        -webkit-font-smoothing: antialiased;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--hr-line);
+        background: var(--hr-bg-0);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--hr-ink);
+      }
+      .node {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--hr-brand);
+      }
+      .sub {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--hr-ink-secondary);
+      }
+      .container {
+        padding: 14px;
+      }
+      .status {
+        padding: 12px;
+        border-radius: 2px;
+        background: var(--hr-bg-1);
+        border: 1px solid var(--hr-line);
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--hr-ink-secondary);
+      }
+      .summary-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--hr-line);
+        color: var(--hr-ink);
+        font-size: 12px;
+      }
+      .verified {
+        font-family: var(--font-mono);
+        color: var(--hr-brand);
+        border: 1px solid rgba(78, 158, 114, 0.42);
+        background: rgba(78, 158, 114, 0.14);
+        padding: 2px 7px;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+      .failed {
+        font-family: var(--font-mono);
+        color: var(--hr-crit);
+        border: 1px solid rgba(229, 100, 94, 0.45);
+        background: rgba(229, 100, 94, 0.12);
+        padding: 2px 7px;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+      .hr-tier-unknown {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        padding: 1px 6px;
+        border: 1px dashed var(--hr-line-strong);
+        color: var(--hr-ink-secondary);
+        border-radius: 2px;
+      }
+      .receipt-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .receipt-item {
+        padding: 9px 11px;
+        background: var(--hr-bg-2);
+        border: 1px solid var(--hr-line-strong);
+        border-radius: 2px;
+        color: var(--hr-ink);
+        font-size: 12px;
+      }
+      .receipt-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .receipt-meta {
+        font-family: var(--font-mono);
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--hr-ink-muted);
+        overflow-wrap: anywhere;
+      }
+      .empty {
+        color: var(--hr-ink-secondary);
+        font-size: 12px;
+      }
+      .footer {
+        padding: 10px 14px;
+        border-top: 1px solid var(--hr-line);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--hr-ink-muted);
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="brand"><span class="node"></span>Hivemind Receipts (.hvr)</div>
+      <span class="sub">Local check</span>
+    </div>
+    <div class="container">
+      <div id="report-root" class="status">Checking this page for signed .hvr receipts...</div>
+    </div>
+    <div class="footer">
+      <span>Runs locally · zero uploads</span>
+      <span style="color: var(--hr-brand);">Ready</span>
+    </div>
+    <script type="module" src="popup.mjs"></script>
+  </body>
+</html>
