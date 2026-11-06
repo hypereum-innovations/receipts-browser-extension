@@ -1,3 +1,5 @@
+> **Retired preview, not maintained.**
+
 # `receipts-browser-extension` — Chrome/Firefox Manifest V3 Offline `.hvr` Verifier
 
 SPDX-License-Identifier: Apache-2.0
